@@ -24,6 +24,7 @@ module.exports = {
     "react-browser-with-addons": "./react-browser-with-addons.js",
     "react-server": "./react-server.js",
     "react-server-with-addons": "./react-server-with-addons.js",
+    "react-relay": "./react-relay.js",
   },
   output: {
       path: __dirname + "/build/" + reactRailsEnv,
