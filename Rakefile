@@ -32,10 +32,12 @@ namespace :react do
       copy_react_asset("#{environment}/react-browser.js", "#{environment}/react.js")
       copy_react_asset("#{environment}/react-server.js", "#{environment}/react-server.js")
       copy_react_asset("#{environment}/react-relay.js", "#{environment}/react-relay.js")
+      copy_react_asset("#{environment}/babel-relay-plugin.js", "#{environment}/babel-relay-plugin.js")
       # With addons:
       copy_react_asset("#{environment}/react-browser-with-addons.js", "#{environment}-with-addons/react.js")
       copy_react_asset("#{environment}/react-server-with-addons.js", "#{environment}-with-addons/react-server.js")
       copy_react_asset("#{environment}/react-relay.js", "#{environment}-with-addons/react-relay.js")
+      copy_react_asset("#{environment}/babel-relay-plugin.js", "#{environment}-with-addons/babel-relay-plugin.js")
     end
   end
 

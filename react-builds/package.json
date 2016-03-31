@@ -4,6 +4,9 @@
   "description": "Prepares react-rails asset files",
   "main": "react.js",
   "dependencies": {
+    "browserify": "^12.0.1",
+    "babel-core": "^6.0.16",
+    "babel-relay-plugin": "^0.2.5",
     "react": "^0.14.0",
     "react-addons-clone-with-props": "^0.14.0",
     "react-addons-create-fragment": "^0.14.0",
@@ -16,6 +19,7 @@
     "react-addons-update": "^0.14.0",
     "react-dom": "^0.14.0",
     "react-relay": "^0.3.2",
-    "webpack": "^1.12.2"
+    "webpack": "^1.12.2",
+    "json-loader": "^0.5.3"
   }
 }

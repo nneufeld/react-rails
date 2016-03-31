@@ -20,6 +20,7 @@ if (reactRailsEnv == "production") {
 module.exports = {
   context: __dirname,
   entry: {
+    "babel-relay-plugin": "./babel-relay-plugin.js",
     "react-browser": "./react-browser.js",
     "react-browser-with-addons": "./react-browser-with-addons.js",
     "react-server": "./react-server.js",
@@ -31,4 +32,14 @@ module.exports = {
       filename: "[name].js",
   },
   plugins: plugins,
+  module: {
+    loaders: [
+      { test: /\.json$/, loader: "json" },
+    ]
+  },
+  node: {
+    fs: 'empty',
+    net: 'empty',
+    module: 'empty'
+  }
 };

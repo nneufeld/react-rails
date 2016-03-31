@@ -10,11 +10,31 @@ module React
                                               "Please use new Babel Transformer options :whitelist, :plugin instead.")
         end
 
-        @transform_options = DEFAULT_TRANSFORM_OPTIONS.merge(options)
+        debugger
+        Babel::Transpiler.script_path
+
+        @relay_transform_code = "transformRelayCode = function(relayCode) { return babel.transform(relayCode, {plugins: [babelRelayPlugin]}); }"
+
+        debugger
+        @plugin = File.read(File.expand_path("../../../assets/react-source/development/babel-relay-plugin.js", __FILE__))
+        @babelRelayContext = ExecJS.compile(@plugin)
+        schema = File.read(File.expand_path("../../../../react-builds/schema.json", __FILE__))
+        relayPlugin = @babelRelayContext.call('getBabelRelayPlugin', { data: 1 })
+        debugger
+        # context.eval(relay_transform_code)
+        context.call("transformRelayCode", 'a=1')
+        @transform_options = DEFAULT_TRANSFORM_OPTIONS.merge(options).merge(plugins: ["babelRelayPlugin"])
+        #debugger
+        a=1
+      end
+
+      def context
+        @context ||= ExecJS.compile("var self = this; " + @plugin)
       end
 
       def transform(code)
-        Babel::Transpiler.transform(code, @transform_options)['code']
+        debugger
+        context.eval("babel.transform(#{code}, {plugins: [babelRelayPlugin]})")
       end
     end
   end
